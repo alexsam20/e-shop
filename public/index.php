@@ -6,4 +6,7 @@ if (PHP_MAJOR_VERSION < 8) {
 
 require_once dirname(__DIR__) . '/config/init.php';
 
-echo 1;
+new \shop\App();
+echo '<pre>';
+var_dump( \shop\App::$app->getProperty('site_name'));
+var_dump(\shop\App::$app->getProperties());
