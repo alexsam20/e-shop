@@ -8,13 +8,14 @@ class App
 
     public function __construct()
     {
+        new ErrorHandler();
         self::$app = Registry::getInstance();
         $this->getParams();
     }
 
     protected function getParams(): void
     {
-        $params = require_once CONFIG . '/params.php';
+        $params = require CONFIG . '/params.php';
         if (!empty($params)) {
             foreach ($params as $name => $value) {
                 if (isset($value)) {
