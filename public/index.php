@@ -5,10 +5,13 @@ if (PHP_MAJOR_VERSION < 8) {
 }
 
 require_once dirname(__DIR__) . '/config/init.php';
+require_once HELPERS . '/function.php';
+require_once CONFIG . '/routes.php';
 
 new \shop\App();
 
-//echo '<pre>';
+print_pre(\shop\Router::getRoutes());
+
 //var_dump($a);
 //throw new Exception('Fuck It\'s ERROR :-(');
 //echo $test;

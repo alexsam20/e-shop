@@ -1,20 +1,20 @@
 <?php
 
-define("DEBUG", 0);
 define("ROOT", dirname(__DIR__));
-define("WWW", ROOT . '/public');
-define("APP", ROOT . '/app');
-define("CORE", ROOT . '/vendor/core');
-define("HELPERS", ROOT . '/vendor/core/helpers');
-define("CASHE", ROOT . '/tmp/cache');
-define("LOGS", ROOT . '/tmp/logs');
-define("CONFIG", ROOT . '/config');
-define("LAYOUT", 'ishop');
-define("PATH", 'http://e-core');
-define("HOME", 'http://localhost:8000');
-define("ADMIN", 'http://e-core/admin');
-define("NO_IMAGE", '/uploads/no_image.jpg');
-define("IMAGE", '/uploads');
+const ADMIN = 'http://localhost:8000/admin';
+const APP = ROOT . '/app';
+const CACHE = ROOT . '/tmp/cache';
+const CONFIG = ROOT . '/config';
+const CORE = ROOT . '/vendor/core';
+const DEBUG = 1;
+const HELPERS = ROOT . '/app/core/helpers';
+const HOME = 'http://localhost:8000';
+const IMAGE = '/uploads';
+const LOGS = ROOT . '/tmp/logs';
+const LAYOUT = 'ishop';
+const NO_IMAGE = '/uploads/no_image.jpg';
+const PATH = 'http://localhost:8000';
+const WWW = ROOT . '/public';
 
 require_once ROOT . '/vendor/autoload.php';
 

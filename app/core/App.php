@@ -8,9 +8,11 @@ class App
 
     public function __construct()
     {
+        //$query = trim(urldecode($_SERVER['QUERY_STRING']), '/');
         new ErrorHandler();
         self::$app = Registry::getInstance();
         $this->getParams();
+        Router::dispatch($this->queryHttpString());
     }
 
     protected function getParams(): void
@@ -23,5 +25,10 @@ class App
                 }
             }
         }
+    }
+
+    private function queryHttpString(): string
+    {
+        return trim(urldecode($_SERVER['REQUEST_URI']), '/');
     }
 }

@@ -232,15 +232,6 @@
             display: inline-block;
         }
 
-        /*.navbar-links{*/
-        /*    display: inline-block;*/
-        /*    float: right;*/
-        /*    margin-right: 15px;*/
-        /*    text-transform: uppercase;*/
-
-
-        }
-
         ul {
             list-style-type: none;
             margin: 0;
@@ -343,17 +334,15 @@
             top: 20%;
             left: 15%;
             z-index: 90;
-            /*    animation: spin-earth 100s infinite linear both;*/
+            animation: spin-earth 100s infinite linear both;
         }
 
         .object_moon{
             position: absolute;
             top: 12%;
             left: 25%;
-            /*
-                transform: rotate(0deg);
-                transition: transform ease-in 99999999999s;
-            */
+            transform: rotate(3deg);
+            transition: transform ease-in 99999999999s;
         }
 
         .earth-moon{

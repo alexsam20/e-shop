@@ -45,7 +45,7 @@ class ErrorHandler
     {
         file_put_contents(
             LOGS . '/error.log',
-            "[" . date('Y-m-d H:i:s') . "] Message: {$message} | File: {$file} | Line: {$line}\n-------------------------\n",
+            "[" . date('Y-m-d H:i:s') . "] Message: {$message} | File: {$file} | Line: {$line}\n",
             FILE_APPEND
         );
     }

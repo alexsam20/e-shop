@@ -45,12 +45,6 @@
             90%,100% { -webkit-opacity: 1; opacity: 1; -webkit-transform: scale(1.2); transform: scale(1.2); border-radius: 999999px;}
         }
 
-        .spin-earth-on-hover{
-
-            transition: ease 200s !important;
-            transform: rotate(-3600deg) !important;
-        }
-
         html, body{
             margin: 0;
             width: 100%;
