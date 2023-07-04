@@ -4,8 +4,11 @@ namespace shop;
 
 class App
 {
-    public static $app;
+    public static Registry $app;
 
+    /**
+     * @throws \Exception
+     */
     public function __construct()
     {
         //$query = trim(urldecode($_SERVER['QUERY_STRING']), '/');
@@ -21,7 +24,7 @@ class App
         if (!empty($params)) {
             foreach ($params as $name => $value) {
                 if (isset($value)) {
-                    self::$app->setProperty($name, $value);
+                    self::$app::setProperty($name, $value);
                 }
             }
         }

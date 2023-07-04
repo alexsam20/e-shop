@@ -13,7 +13,7 @@ class Registry
         self::$properties[$name] = $value;
     }
 
-    public static function getProperty($name): mixed
+    public static function getProperty($name): ?array
     {
         return self::$properties[$name] ?? null;
     }
