@@ -6,9 +6,10 @@ use shop\Controller;
 
 class MainController extends Controller
 {
+    //public false|string $layout = 'test2';
+
     public function indexAction()
     {
-        print_pre($this->model);
-        echo __METHOD__;
+        //$this->layout = 'default';
     }
 }

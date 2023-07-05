@@ -10,7 +10,7 @@ require_once CONFIG . '/routes.php';
 
 new \shop\App();
 
-print_pre(\shop\Router::getRoutes());
+//print_pre(\shop\Router::getRoutes());
 
 //var_dump($a);
 //throw new Exception('Fuck It\'s ERROR :-(');
