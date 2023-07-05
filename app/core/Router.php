@@ -2,6 +2,8 @@
 
 namespace shop;
 
+use RuntimeException;
+
 class Router
 {
     protected static array $routes = [];
@@ -22,8 +24,20 @@ class Router
         return self::$route;
     }
 
+    protected static function removeQueryString($url): string
+    {
+        if ($url) {
+            $params = explode('?', $url);
+            if (false === str_contains($params[0], '=' )) {
+                return trim($params[0], '/');
+            }
+        }
+        return '';
+    }
+
     public static function dispatch($url): void
     {
+        $url = self::removeQueryString($url);
         if (self::matchRoute($url)) {
             $controller = 'app\controllers\\' . self::$route['admin_prefix'] . self::$route['controller'] . 'Controller';
             if (class_exists($controller)) {
@@ -32,13 +46,13 @@ class Router
                 if (method_exists($controllerObject, $action)) {
                     $controllerObject->$action();
                 } else {
-                    throw new \Exception("Method {$controller}::{$action} not found", 404);
+                    throw new RuntimeException("Method {$controller}::{$action} not found", 404);
                 }
             } else {
-                throw new \Exception("Controller {$controller} not found", 404);
+                throw new RuntimeException("Controller {$controller} not found", 404);
             }
         } else {
-            throw new \Exception("Page not found", 404);
+            throw new RuntimeException("Page not found", 404);
         }
     }
 
