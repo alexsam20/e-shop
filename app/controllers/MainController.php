@@ -6,10 +6,10 @@ use shop\Controller;
 
 class MainController extends Controller
 {
-    //public false|string $layout = 'test2';
-
     public function indexAction()
     {
-        //$this->layout = 'default';
+        $names = ['John', 'Alex', 'Michel'];
+        $this->setMeta('Main Page', 'Description...', 'shop, e-shop, i-shop');
+        $this->setData(compact('names'));
     }
 }
