@@ -2,6 +2,7 @@
 
 namespace shop;
 
+use RedBeanPHP\R;
 use RuntimeException;
 
 class View
@@ -50,5 +51,32 @@ class View
         $out .= '<meta name="keywords" content="' . htmlspecialchars($this->meta['keywords']) . '">' . PHP_EOL;
 
         return $out;
+    }
+
+    public function getDBLogs()
+    {
+        $logs = R::getDatabaseAdapter()
+            ->getDatabase()
+            ->getLogger();
+        $logs = array_merge(
+            $logs->grep( 'SELECT' ),
+            $logs->grep( 'INSERT' ),
+            $logs->grep( 'UPDATE' ),
+            $logs->grep( 'DELETE' )
+        );
+        print_pre($logs);
+    }
+
+    public function getPart($file, $data = [])
+    {
+        if (is_array($data)) {
+            extract($data);
+        }
+        $file = APP . "/views/{$file}.php";
+        if (is_file($file)) {
+            require $file;
+        } else {
+            echo "File {$file} not found...";
+        }
     }
 }

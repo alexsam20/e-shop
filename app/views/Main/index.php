@@ -1,3 +1,7 @@
 <h1>Hello Main/index.php!</h1>
 
-<?php // echo $test; ?>
+<?php if (!empty($names)): ?>
+    <?php foreach ($names as $name): ?>
+        <?php echo $name->id ?> => <?php echo $name->name ?><br>
+    <?php endforeach; ?>
+<?php endif; ?>

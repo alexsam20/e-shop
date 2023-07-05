@@ -12,7 +12,8 @@ class MainController extends Controller
     public function indexAction()
     {
         $names = $this->model->getNames();
-        print_pre($names);
+        $oneName = R::getRow('SELECT * FROM `name` WHERE `id` = 2');
+
         $this->setMeta('Main Page', 'Description...', 'shop, e-shop, i-shop');
         $this->setData(compact('names'));
     }
