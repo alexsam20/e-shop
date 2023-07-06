@@ -1,5 +1,5 @@
-<?php ///** @var $products array */ ?>
-<?php ///** @var $this View */ ?>
+<?php /** @var $products array */ ?>
+<?php /** @var $this View */ ?>
 
 <?php if (!empty($slides)): ?>
     <div class="container-fluid my-carousel">

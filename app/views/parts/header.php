@@ -15,7 +15,7 @@ use shop\View;
     <link rel="stylesheet" href="<?php echo PATH ?>/assets/css/magnific-popup.css">
     <link rel="stylesheet" href="<?php echo PATH ?>/assets/css/main.css">
     <link rel="icon" type="image/png" sizes="48x48" href="<?php echo PATH ?>/assets/img/favicon.png">
-    <?php $this->getMeta(); ?>
+    <?php echo $this->getMeta(); ?>
 </head>
 <body>
 
@@ -78,7 +78,7 @@ use shop\View;
 
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid p-0">
-                    <a class="navbar-brand" href="index.html">Shop Brand</a>
+                    <a class="navbar-brand" href="/"><?php echo \shop\App::$app::getProperty('site_name') ?></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
