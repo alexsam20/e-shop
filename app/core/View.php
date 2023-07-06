@@ -21,7 +21,7 @@ class View
         }
     }
 
-    public function render($data)
+    public function render($data): void
     {
         if (is_array($data)) extract($data);
         $prefix = str_replace('\\', '/', $this->route['admin_prefix']);
@@ -44,7 +44,7 @@ class View
         }
     }
 
-    public function getMeta()
+    public function getMeta(): string
     {
         $out = '<title>' . htmlspecialchars($this->meta['title']) . '</title>' . PHP_EOL;
         $out .= '<meta name="description" content="' . htmlspecialchars($this->meta['description']) . '">' . PHP_EOL;
@@ -53,7 +53,7 @@ class View
         return $out;
     }
 
-    public function getDBLogs()
+    public function getDBLogs(): void
     {
         $logs = R::getDatabaseAdapter()
             ->getDatabase()
