@@ -14,7 +14,7 @@ const LOGS = ROOT . '/tmp/logs';
 const LAYOUT = 'ishop';
 const NO_IMAGE = '/uploads/no_image.jpg';
 const PATH = 'http://localhost:8000';
-const SLIDER_PATH = '/uploads/images/slider/';
+const SLIDER_PATH = '/uploads/slider/';
 const WWW = ROOT . '/public';
 
 require_once ROOT . '/vendor/autoload.php';

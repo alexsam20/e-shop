@@ -11,6 +11,7 @@ class MainController extends AppController
     public function indexAction()
     {
         $slides = R::findAll('slider');
-        $this->setData(compact('slides'));
+        $products = $this->model->getHits(1, 6);
+        $this->setData(compact('slides', 'products'));
     }
 }
