@@ -5,7 +5,7 @@ use shop\View;
 <!doctype html>
 <html lang="en">
 <head>
-    <base href="/">
+    <base href="<?php echo baseUrl(); ?>">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?php echo PATH ?>/assets/bootstrap/css/bootstrap.min.css">
@@ -15,6 +15,7 @@ use shop\View;
     <link rel="stylesheet" href="<?php echo PATH ?>/assets/css/magnific-popup.css">
     <link rel="stylesheet" href="<?php echo PATH ?>/assets/css/main.css">
     <link rel="icon" type="image/png" sizes="48x48" href="<?php echo PATH ?>/assets/img/favicon.png">
+<!--    <link rel="icon" type="image/png" sizes="48x48" href="--><?php //echo PATH ?><!--/favicon.png">-->
     <?php echo $this->getMeta(); ?>
 </head>
 <body>
@@ -55,18 +56,9 @@ use shop\View;
                         </ul>
                     </div>
 
-                    <div class="dropdown d-inline-block">
-                        <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
-                            <img src="<?php echo PATH ?>/assets/img/ru.png" alt="">
-                        </a>
-                        <ul class="dropdown-menu" id="languages">
-                            <li>
-                                <button class="dropdown-item" data-langcode="en">
-                                    <img src="<?php echo PATH ?>/assets/img/en.png" alt="">
-                                    English</button>
-                            </li>
-                        </ul>
-                    </div>
+                    <?php new \app\widgets\language\Language();?>
+
+
 
                 </div>
             </div>
@@ -78,7 +70,7 @@ use shop\View;
 
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid p-0">
-                    <a class="navbar-brand" href="/"><?php echo \shop\App::$app::getProperty('site_name') ?></a>
+                    <a class="navbar-brand" href="<?php echo baseUrl(); ?>"><?php echo \shop\App::$app::getProperty('site_name') ?></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
