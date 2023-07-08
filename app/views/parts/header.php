@@ -41,10 +41,10 @@ use shop\View;
 
                     <a href="#" class="relative" data-bs-toggle="modal" data-bs-target="#cart-modal">
                         <i class="fas fa-shopping-cart"></i>
-                        <span class="badge bg-danger rounded-pill count-items">0</span>
+                        <span class="badge bg-danger rounded-pill count-items">3</span>
                     </a>
 
-                    <a href="#"><i class="far fa-heart"></i></a>
+<!--                    <a href="/"><i class="far fa-heart"></<i></a>-->
 
                     <div class="dropdown d-inline-block">
                         <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
@@ -71,34 +71,40 @@ use shop\View;
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid p-0">
                     <a class="navbar-brand" href="<?php echo baseUrl(); ?>"><?php echo \shop\App::$app::getProperty('site_name') ?></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link" href="category.html">Компьютеры</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="category.html">Планшеты</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Ноутбуки
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="category.html">Mac</a></li>
-                                    <li><a class="dropdown-item" href="category.html">Windows</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="category.html">Телефоны</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="category.html">Камеры</a>
-                            </li>
-                        </ul>
+                        <?php new \app\widgets\menu\Menu([
+                            'class' => 'navbar-nav ms-auto mb-2 mb-lg-0',
+                            'cache' => 30,
+                        ]) ?>
+<!--                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">-->
+<!--                            <li class="nav-item">-->
+<!--                                <a class="nav-link" href="category.html">Компьютеры</a>-->
+<!--                            </li>-->
+<!--                            <li class="nav-item">-->
+<!--                                <a class="nav-link" href="category.html">Планшеты</a>-->
+<!--                            </li>-->
+<!--                            <li class="nav-item dropdown">-->
+<!--                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--                                    Ноутбуки-->
+<!--                                </a>-->
+<!--                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--                                    <li><a class="dropdown-item" href="category.html">Mac</a></li>-->
+<!--                                    <li><a class="dropdown-item" href="category.html">Windows</a></li>-->
+<!--                                </ul>-->
+<!--                            </li>-->
+<!--                            <li class="nav-item">-->
+<!--                                <a class="nav-link" href="category.html">Телефоны</a>-->
+<!--                            </li>-->
+<!--                            <li class="nav-item">-->
+<!--                                <a class="nav-link" href="category.html">Камеры</a>-->
+<!--                            </li>-->
+<!--                        </ul>-->
                     </div>
 
                 </div>
