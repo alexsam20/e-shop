@@ -61,3 +61,13 @@ function serverMethodPOST(string $key, $type = 's'): float|int|string
 
     return trim($$param);
 }
+
+function __($key)
+{
+    echo \shop\Language::getTranslatePhrase($key);
+}
+
+function ___($key)
+{
+    return \shop\Language::getTranslatePhrase($key);
+}
