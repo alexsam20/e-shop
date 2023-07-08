@@ -5,12 +5,17 @@ namespace app\controllers;
 use app\models\Main;
 use RedBeanPHP\R;
 use shop\App;
+use shop\Cache;
 
 /** @property Main $model */
 class MainController extends AppController
 {
     public function indexAction()
     {
+//        $test = 'Hello';
+//        $cache = Cache::getInstance();
+//        $cache->setCache('test', $test, 30);
+//        print_pre($cache->getCache('test'));
         $lang = App::$app::getProperty('language');
         $slides = R::findAll('slider');
         $products = $this->model->getHits($lang, 6);
