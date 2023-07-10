@@ -8,6 +8,7 @@ const CACHE_TIME = 30;
 const CONFIG = ROOT . '/config';
 const CORE = ROOT . '/vendor/core';
 const DEBUG = 1;
+const PRODUCT_GALLERY = '/uploads/images/';
 const HELPERS = ROOT . '/app/core/helpers';
 const HOME = 'http://localhost:8000';
 const IMAGE = '/uploads';
