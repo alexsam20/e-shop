@@ -3,7 +3,7 @@
     <div class="col-lg-4 col-sm-6 mb-3">
         <div class="product-card">
             <div class="product-tumb">
-                <a href="product/<?php echo $product['slug']; ?>"><img src="<?php echo IMAGE  . '/' . $product['img']; ?>" alt=""></a>
+                <a href="product/<?php echo $product['slug']; ?>"><img src="<?php echo IMAGE . $product['img']; ?>" alt=""></a>
             </div>
             <div class="product-details">
                 <h4><a href="product/<?php echo $product['slug']; ?>"><?php echo $product['title']; ?></a></h4>
@@ -16,7 +16,7 @@
                         $<?php echo $product['price']; ?>
                     </div>
                     <div class="product-links">
-                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <a class="add-to-cart" href="cart/add?id=<?php echo $product['id']?>" data-id="<?php echo $product['id']?>"><?php echo getCartIcon($product['id']) ?></a>
                         <a href="#"><i class="far fa-heart"></i></a>
                     </div>
                 </div>

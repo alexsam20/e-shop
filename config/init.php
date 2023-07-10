@@ -4,6 +4,7 @@ define("ROOT", dirname(__DIR__));
 const ADMIN = 'http://localhost:8000/admin';
 const APP = ROOT . '/app';
 const CACHE = ROOT . '/tmp/cache';
+const CACHE_TIME = 30;
 const CONFIG = ROOT . '/config';
 const CORE = ROOT . '/vendor/core';
 const DEBUG = 1;

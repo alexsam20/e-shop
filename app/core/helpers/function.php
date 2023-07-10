@@ -71,3 +71,13 @@ function ___($key)
 {
     return \shop\Language::getTranslatePhrase($key);
 }
+
+function getCartIcon($id): string
+{
+    if (!empty($_SESSION['cart']) && array_key_exists($id, $_SESSION['cart'])) {
+        $icon = '<i class="fas fa-luggage-cart"></i>';
+    } else {
+        $icon = '<i class="fas fa-shopping-cart"></i>';
+    }
+    return $icon;
+}
