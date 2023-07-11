@@ -54,6 +54,13 @@ abstract class Controller
         $prefix = str_replace('\\', '/', $this->route['admin_prefix']);
         require APP . "/views/{$prefix}{$this->route['controller']}/{$view}.php";
         die;
-        //$viewFile = APP . "/views/{$prefix}{$this->route['controller']}/{$this->view}.php";
+    }
+
+    public function error_404(string $folder = "Error", int $view = 404, int $response = 404)
+    {
+        http_response_code($response);
+        $this->setMeta(___('tpl_error_404'));
+        $this->route['controller'] = $folder;
+        $this->view = $view;
     }
 }

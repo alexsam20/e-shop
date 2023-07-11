@@ -11,10 +11,10 @@ class Breadcrumbs extends AppModel
         $lang = App::$app::getProperty('language')['code'];
         $categories = App::$app::getProperty("categories_{$lang}");
         $breadcrumbs_array = self::getPartsBreadcrumbs($categories, $category_id);
-        $breadcrumbs = "<li class='breadcrumb-item'><a href='" . baseUrl() . "'>" . ___('tpl_home_breadcrumbs') . "</a></li>";
+        $breadcrumbs = sprintf("<li class='breadcrumb-item'><a href='%s'>%s</a></li>", baseUrl(), ___('tpl_home_breadcrumbs'));
         if ($breadcrumbs_array) {
             foreach ($breadcrumbs_array as $slug => $title) {
-                $breadcrumbs .= "<li class='breadcrumb-item'><a href='category/{$slug}'>{$title}</a></li>";
+                $breadcrumbs .= "<li class='breadcrumb-item'><a href='category/" . $slug . "'>" . $title . "</a></li>";
             }
         }
         if ($name) {
