@@ -1,11 +1,9 @@
-<?php ///** @var $products array */ ?>
-<?php ///** @var $this View */ ?>
+<?php /** @var $product array */ ?>
+<?php /** @var $breadcrumbs \app\models\Breadcrumbs */ ?>
 <div class="container">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-light p-2">
-            <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home"></i></a></li>
-            <li class="breadcrumb-item"><a href="#">Ноутбуки</a></li>
-            <li class="breadcrumb-item active" aria-current="page">MacBook</li>
+            <?php echo $breadcrumbs; ?>
         </ol>
     </nav>
 </div>
@@ -19,8 +17,11 @@
             <h1><?php echo $product['title']; ?></h1>
 
             <ul class="list-unstyled">
-                <li><i class="fas fa-check text-success"></i> В наличии</li>
-                <li><i class="fas fa-shipping-fast text-muted"></i> Ожидается</li>
+                <?php if ($product['amount'] !== null): ?>
+                    <li><i class="fas fa-check text-success"></i>&nbsp;&nbsp;<?php __('product_view_in_stock'); ?></li>
+                <?php else: ?>
+                    <li><i class="fas fa-shipping-fast text-muted"></i>&nbsp;&nbsp;<?php __('product_view_is_waiting'); ?></li>
+                <?php endif; ?>
                 <li><i class="fas fa-hand-holding-usd"></i> <span class="product-price">
                         <?php if ($product['old_price']): ?>
                         <small>$<?php echo $product['old_price']; ?></small>

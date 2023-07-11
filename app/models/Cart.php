@@ -59,8 +59,8 @@ class Cart extends AppModel
         }
         $ids = implode(',', array_keys($_SESSION['cart']));
         $products = R::getAll("SELECT p.id, pd.title FROM product p 
-                    JOIN product_description pd ON p.id = pd.product_id 
-                    WHERE p.id IN ($ids) AND pd.language_id = ?", [$lang['id']]);
+            JOIN product_description pd ON p.id = pd.product_id 
+            WHERE p.id IN ($ids) AND pd.language_id = ?", [$lang['id']]);
         foreach ($products as $product) {
             $_SESSION['cart'][$product['id']]['title'] = $product['title'];
         }
