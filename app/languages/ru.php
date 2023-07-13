@@ -9,7 +9,7 @@ return [
     'tpl_home_link' => 'Главная',
 
     'tpl_home_breadcrumbs' => '<i class="fas fa-home"></i>',
-    'tpl_total_pagination' => 'товара(ов) из',
+    'tpl_pagination_total' => 'товара(ов) из',
 
     'tpl_cart_title' => 'Корзина',
     'tpl_cart_photo' => 'Фото',

@@ -30,7 +30,7 @@ class App
         }
     }
 
-    private function queryHttpString(): string
+    public function queryHttpString(): string
     {
         return trim(urldecode($_SERVER['REQUEST_URI']), '/');
     }

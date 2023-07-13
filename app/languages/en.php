@@ -9,7 +9,7 @@ return [
     'tpl_home_link' => 'Home',
 
     'tpl_home_breadcrumbs' => '<i class="fas fa-home"></i>',
-    'tpl_total_pagination' => 'product(s) from',
+    'tpl_pagination_total' => 'product(s) from',
 
     'tpl_cart_title' => 'Basket',
     'tpl_cart_photo' => 'Photo',

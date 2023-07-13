@@ -6,6 +6,7 @@ Router::addRoutes('^admin/?$', ['controller' => 'Main', 'action' => 'index', 'ad
 Router::addRoutes('^admin/(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$', ['admin_prefix' => 'admin',]);
 
 Router::addRoutes('^(?P<lang>[a-z]+)?/?product/(?P<slug>[a-z0-9-]+)/?$', ['controller' => 'Product', 'action' => 'view']);
+Router::addRoutes('^(?P<lang>[a-z]+)?/?category/(?P<slug>[a-z0-9-]+)/?$', ['controller' => 'Category', 'action' => 'view']);
 
 Router::addRoutes('^(?P<lang>[a-z]+)?/?$', ['controller' => 'Main', 'action' => 'index',]);
 
