@@ -16,16 +16,12 @@
 
 <div class="container py-3">
     <div class="row">
-
         <div class="col-lg-12 category-content">
             <h1 class="section-title"><?php __('search_index_search_title'); ?></h1>
-
             <h4><?php echo ___('search_index_search_query') . htmlspecialchars($s); ?></h4>
-
             <div class="row">
                 <?php if (!empty($products)): ?>
                     <?php $this->getPart('parts/products', compact('products')); ?>
-
                     <div class="row">
                         <div class="col-md-12">
                             <p>
@@ -38,12 +34,10 @@
                             <?php endif; ?>
                         </div>
                     </div>
-
                 <?php else: ?>
                     <p><?php __('search_index_not_found'); ?></p>
                 <?php endif; ?>
             </div>
         </div>
-
     </div>
 </div>

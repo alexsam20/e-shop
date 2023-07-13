@@ -9,6 +9,7 @@ Router::addRoutes('^(?P<lang>[a-z]+)?/?product/(?P<slug>[a-z0-9-]+)/?$', ['contr
 Router::addRoutes('^(?P<lang>[a-z]+)?/?category/(?P<slug>[a-z0-9-]+)/?$', ['controller' => 'Category', 'action' => 'view']);
 
 Router::addRoutes('^(?P<lang>[a-z]+)?/?search/?$', ['controller' => 'Search', 'action' => 'index']);
+Router::addRoutes('^(?P<lang>[a-z]+)?/?wishlist/?$', ['controller' => 'Wishlist', 'action' => 'index']);
 
 Router::addRoutes('^(?P<lang>[a-z]+)?/?$', ['controller' => 'Main', 'action' => 'index',]);
 
