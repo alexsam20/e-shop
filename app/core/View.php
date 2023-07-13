@@ -56,7 +56,7 @@ class View
     public function getDBLogs(): void
     {
         if (DEBUG) {
-            //if (R::testConnection()) {
+            if (R::testConnection()) {
                 $logs = R::getDatabaseAdapter()
                     ->getDatabase()
                     ->getLogger();
@@ -67,7 +67,7 @@ class View
                     $logs->grep( 'DELETE' )
                 );
                 print_pre($logs);
-            //}
+            }
         }
     }
 

@@ -65,7 +65,6 @@ use shop\View;
         </div>
     </div>
 </div>
-
 <?php $this->getDBLogs(); ?>
 <script>
     const PATH = '<?php echo PATH; ?>';

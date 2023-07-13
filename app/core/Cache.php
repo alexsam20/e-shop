@@ -12,12 +12,6 @@ class Cache
         $content['end_time'] = time() + $seconds;
 
         return (bool)file_put_contents(CACHE . '/' . md5($key) . '.txt', serialize($content));
-
-//        if (file_put_contents(CACHE . '/' . md5($key) . '.txt', serialize($content))) {
-//            return true;
-//        }
-//
-//        return false;
     }
 
     public function getCache($key): mixed

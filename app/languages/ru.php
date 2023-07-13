@@ -10,6 +10,10 @@ return [
 
     'tpl_home_breadcrumbs' => '<i class="fas fa-home"></i>',
     'tpl_pagination_total' => 'товара(ов) из',
+    'tpl_pagination_next_page' => 'Вперёд',
+    'tpl_pagination_previous_page' => 'Назад',
+    'tpl_pagination_to_beginning' => 'В начало',
+    'tpl_pagination_to_end' => 'В конец',
 
     'tpl_cart_title' => 'Корзина',
     'tpl_cart_photo' => 'Фото',

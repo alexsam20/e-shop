@@ -30,21 +30,21 @@ class Pagination
         $page2right = null; // SECOND PAGE FROM RIGHT
         $page1right = null; // FIRST PAGE FROM RIGHT
 
-        // $back
+        // $back &lt;
         if ($this->currentPage > 1) {
-            $back = "<li class='page-item'><a class='page-link' href='" . $this->getLink($this->currentPage - 1) . "'>&lt;</a></li>";
+            $back = "<li class='page-item'><a class='page-link' href='" . $this->getLink($this->currentPage - 1) . "'>" . ___('tpl_pagination_previous_page') . "</a></li>";
         }
-        // $forward
+        // $forward &gt;
         if ($this->currentPage < $this->countPages) {
-            $forward = "<li class='page-item'><a class='page-link' href='" . $this->getLink($this->currentPage + 1) . "'>&gt;</a></li>";
+            $forward = "<li class='page-item'><a class='page-link' href='" . $this->getLink($this->currentPage + 1) . "'>" . ___('tpl_pagination_next_page') . "</a></li>";
         }
-        // $startpage
+        // $startpage &laquo;
         if ($this->currentPage > 3) {
-            $startpage = "<li class='page-item'><a class='page-link' href='" . $this->getLink(1) . "'>&laquo;</a></li>";
+            $startpage = "<li class='page-item'><a class='page-link' href='" . $this->getLink(1) . "'>" . ___('tpl_pagination_to_beginning') . "</a></li>";
         }
-        // $endpage
+        // $endpage &raquo;
         if ($this->currentPage < ($this->countPages - 2)) {
-            $endpage = "<li class='page-item'><a class='page-link' href='" . $this->getLink($this->countPages) . "'>&raquo;</a></li>";
+            $endpage = "<li class='page-item'><a class='page-link' href='" . $this->getLink($this->countPages) . "'>" . ___('tpl_pagination_to_end') . "</a></li>";
         }
         // $page2left
         if ($this->currentPage - 2 > 0) {

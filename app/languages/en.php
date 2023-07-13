@@ -10,6 +10,10 @@ return [
 
     'tpl_home_breadcrumbs' => '<i class="fas fa-home"></i>',
     'tpl_pagination_total' => 'product(s) from',
+    'tpl_pagination_next_page' => 'Next',
+    'tpl_pagination_previous_page' => 'Previous',
+    'tpl_pagination_to_beginning' => 'To beginning',
+    'tpl_pagination_to_end' => 'To end',
 
     'tpl_cart_title' => 'Basket',
     'tpl_cart_photo' => 'Photo',

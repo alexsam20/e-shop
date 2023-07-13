@@ -47,7 +47,6 @@ class Category extends AppModel
     private function sortOfMethodProduct(): array
     {
         return [
-            'default'    => '',
             'title_asc'  => 'ORDER BY title ASC',
             'title_desc' => 'ORDER BY title DESC',
             'price_asc'  => 'ORDER BY price ASC',
