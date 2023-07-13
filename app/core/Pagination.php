@@ -4,13 +4,13 @@ namespace shop;
 
 class Pagination
 {
-    public $currentPage;
-    public $perpage;
-    public $total;
-    public $countPages;
-    public $uri;
+    public mixed $currentPage;
+    public int $perpage = 0;
+    public int $total = 0;
+    public int|float $countPages = 0;
+    public string $uri = '';
 
-    public function __construct($page, $perpage, $total)
+    public function __construct(int $page, int $perpage, int $total)
     {
         $this->perpage = $perpage;
         $this->total = $total;
@@ -19,7 +19,7 @@ class Pagination
         $this->uri = $this->getParams();
     }
 
-    public function getHtml()
+    public function getHtml(): string
     {
         $back = null; // link BACK
         $forward = null; // link FORWARD

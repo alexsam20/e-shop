@@ -13,7 +13,7 @@ class AppController extends Controller
     public function __construct(array $route = [])
     {
         parent::__construct($route);
-        new AppModel();
+        $model = new AppModel();
 
         App::$app::setProperty('languages', Language::getLanguages());
         App::$app::setProperty('language', Language::getLanguage(App::$app::getProperty('languages')));
@@ -21,10 +21,14 @@ class AppController extends Controller
         $lang = App::$app::getProperty('language');
         \shop\Language::loadTranslatePhrase($lang['code'], $this->route);
 
-        $categories = R::getAssoc("SELECT c.*, cd.* FROM category c 
-           JOIN category_description cd
-           ON c.id = cd.category_id
-           WHERE cd.language_id = ?", [$lang['id']]);
+        $categories = $model->getCategories($lang);
+
+
+
+//        $categories = R::getAssoc("SELECT c.*, cd.* FROM category c
+//           JOIN category_description cd
+//           ON c.id = cd.category_id
+//           WHERE cd.language_id = ?", [$lang['id']]);
 
         App::$app::setProperty("categories_{$lang['code']}", $categories);
     }
