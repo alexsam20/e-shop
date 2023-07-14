@@ -48,7 +48,7 @@ abstract class Controller
         return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest';
     }
 
-    public function loadView($view, $vars =[])
+    public function loadView($view, $vars =[]): void
     {
         extract($vars);
         $prefix = str_replace('\\', '/', $this->route['admin_prefix']);
@@ -56,7 +56,7 @@ abstract class Controller
         die;
     }
 
-    public function error_404(string $folder = "Error", int $view = 404, int $response = 404)
+    public function error_404(string $folder = "Error", int $view = 404, int $response = 404): void
     {
         http_response_code($response);
         $this->setMeta(___('tpl_error_404'));
