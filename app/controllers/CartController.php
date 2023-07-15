@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Cart;
+use app\models\User;
 use shop\App;
 
 /** @property Cart $model */
@@ -58,6 +59,36 @@ class CartController extends AppController
         $this->loadView('cart_modal');
 
         return true;
+    }
+
+    public function viewAction(): void
+    {
+        $this->setMeta(___('tpl_cart_title'));
+    }
+
+    public function checkoutAction(): void
+    {
+        if (!empty($_POST)) {
+            // registration user, if not registration
+            if (!User::checkAuth()) {
+                $user = new User();
+                $data = $_POST;
+                $user->loadAttributes($data);
+                if (!$user->validate($data) || !$user->checkUnique()) {
+                    $user->getErrors();
+                    $_SESSION['form_data'] = $data;
+                    redirect();
+                } else {
+                    $user->attributes['password'] = $user->passwordHash();
+                    if (!$user_id = $user->save('user')) {
+                        $_SESSION['errors'] = ___('cart_checkout_error_register');
+                        redirect();
+                    }
+                }
+            }
+
+        }
+        redirect();
     }
 
 }
