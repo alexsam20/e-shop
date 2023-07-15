@@ -59,4 +59,12 @@ class UserController extends AppController
         }
         redirect(baseUrl() . 'user/login');
     }
+
+    public function cabinetAction(): void
+    {
+        if (!User::checkAuth()) {
+            redirect(baseUrl() . 'user/login');
+        }
+        $this->setMeta(___('tpl_cabinet'));
+    }
 }
