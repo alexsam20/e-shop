@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\User;
+use shop\App;
 use shop\Pagination;
 
 /** @property User $model */
@@ -76,8 +77,8 @@ class UserController extends AppController
         }
 
         $page = serverMethodGET('page');
-//        $perpage = App::$app::getProperty('pagination');
-        $perpage = 5;
+        $perpage = App::$app::getProperty('pagination');
+//        $perpage = 5;
         $total = $this->model->getCountOrders($_SESSION['user']['id']);
         $pagination = new Pagination($page, $perpage, $total);
         $start = $pagination->getStart();
@@ -102,5 +103,24 @@ class UserController extends AppController
 
         $this->setMeta(___('user_order_title'));
         $this->setData(compact('order'));
+    }
+
+    public function filesAction()
+    {
+        if (!User::checkAuth()) {
+            redirect(baseUrl() . 'user/login');
+        }
+
+        $lang = App::$app::getProperty('language');
+        $page = serverMethodGET('page');
+        $perpage = App::$app::getProperty('pagination');
+//        $perpage = 1;
+        $total = $this->model->getCountFiles();
+        $pagination = new Pagination($page, $perpage, $total);
+        $start = $pagination->getStart();
+
+        $files = $this->model->getUserFiles($start, $perpage, $lang);
+        $this->setMeta(___('user_files_title'));
+        $this->setData(compact('files', 'pagination', 'total'));
     }
 }

@@ -87,4 +87,17 @@ class User extends AppModel
     {
         return R::getAll("SELECT o.*, op.* FROM orders o JOIN order_product op on o.id = op.order_id WHERE o.id = ?", [$id]);
     }
+
+    public function getCountFiles(): int
+    {
+        return R::count('order_download', 'user_id = ? AND status = 1', [$_SESSION['user']['id']]);
+    }
+
+    public function getUserFiles($start, $perpage, $lang): array
+    {
+        return R::getAll("SELECT od.*, d.*, dd.* FROM order_download od 
+           JOIN download d on d.id = od.download_id JOIN download_description dd 
+           ON d.id = dd.download_id WHERE od.user_id = ? AND od.status = 1 AND  dd.language_id = ? 
+           LIMIT $start, $perpage", [$_SESSION['user']['id'], $lang['id']]);
+    }
 }
