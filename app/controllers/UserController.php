@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\User;
+use shop\Pagination;
 
 /** @property User $model */
 class UserController extends AppController
@@ -66,5 +67,24 @@ class UserController extends AppController
             redirect(baseUrl() . 'user/login');
         }
         $this->setMeta(___('tpl_cabinet'));
+    }
+
+    public function ordersAction(): void
+    {
+        if (!User::checkAuth()) {
+            redirect(baseUrl() . 'user/login');
+        }
+
+        $page = serverMethodGET('page');
+//        $perpage = App::$app::getProperty('pagination');
+        $perpage = 5;
+        $total = $this->model->getCountOrders($_SESSION['user']['id']);
+        $pagination = new Pagination($page, $perpage, $total);
+        $start = $pagination->getStart();
+
+        $orders = $this->model->getUserOrders($start, $perpage, $_SESSION['user']['id']);
+
+        $this->setMeta(___('user_orders_title'));
+        $this->setData(compact('orders', 'pagination', 'total'));
     }
 }
