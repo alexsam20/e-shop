@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\NoReturn;
+
 function print_pre($var, $exit = false)
 {
     echo '<pre>' . print_r($var, 1) . '</pre>';
@@ -13,7 +15,7 @@ function redirect($http = false): void
     if ($http) {
         $redirect = $http;
     } else {
-        $redirect = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : PATH;
+        $redirect = $_SERVER['HTTP_REFERER'] ?? PATH;
     }
     header("Location: $redirect");
     die;
@@ -80,4 +82,9 @@ function getCartIcon($id): string
         $icon = '<i class="fas fa-shopping-cart"></i>';
     }
     return $icon;
+}
+
+function getFieldValue($name): string
+{
+    return isset($_SESSION['form_data'][$name]) ? htmlspecialchars($_SESSION['form_data'][$name]) : '';
 }
