@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Cart;
+use app\models\Order;
 use app\models\User;
 use shop\App;
 
@@ -86,9 +87,18 @@ class CartController extends AppController
                     }
                 }
             }
+            // Save order
+            $data['user_id'] = $user_id ?? $_SESSION['user']['id'];
+            $data['note'] = serverMethodPOST('note');
+            $user_email = $_SESSION['user']['email'] ?? serverMethodPOST('email');
 
+            if (!$order_id = Order::saveOrder($data)) {
+                $_SESSION['errors'] = ___('cart_checkout_error_save_order');
+            } else {
+                // make send email
+                $_SESSION['success'] = ___('cart_checkout_order_success');
+            }
         }
         redirect();
     }
-
 }
