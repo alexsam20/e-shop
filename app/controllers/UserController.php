@@ -16,8 +16,6 @@ class UserController extends AppController
         if (!empty($_POST)) {
             $data = $_POST;
             $this->model->loadAttributes($data);
-            print_pre($_SESSION);
-            print_pre($this);
             if (!$this->model->validate($data) || !$this->model->checkUnique()) {
                 $this->model->getErrors();
                 $_SESSION['form_data'] = $data;
@@ -35,4 +33,30 @@ class UserController extends AppController
         $this->setMeta(___('tpl_signup'));
     }
 
+    public function loginAction(): void
+    {
+        if (User::checkAuth()) {
+            redirect(baseUrl());
+        }
+
+        if (!empty($_POST)) {
+            if ($this->model->login()) {
+                $_SESSION['success'] = ___('user_login_success_login');
+                redirect(baseUrl());
+            } else {
+                $_SESSION['errors'] = ___('user_login_error_login');
+                redirect();
+            }
+        }
+
+        $this->setMeta(___('tpl_login'));
+    }
+
+    public function logoutAction(): void
+    {
+        if (User::checkAuth()) {
+            unset($_SESSION['user']);
+        }
+        redirect(baseUrl() . 'user/login');
+    }
 }
