@@ -9,6 +9,44 @@ use shop\Pagination;
 /** @property User $model */
 class UserController extends AppController
 {
+    public function credentialsAction(): void
+    {
+        if (!User::checkAuth()) {
+            redirect(baseUrl() . 'user/login');
+        }
+
+        if (!empty($_POST)) {
+            $this->model->loadAttributes();
+
+            if (empty($this->model->attributes['password'])) {
+                unset($this->model->attributes['password']);
+            }
+            unset($this->model->attributes['email']);
+
+            if (!$this->model->validate($this->model->attributes)) {
+                $this->model->getErrors();
+            } else {
+                if (!empty($this->model->attributes['password'])) {
+                    $this->model->attributes['password'] = $this->model->passwordHash();
+                }
+
+                if ($this->model->update('user', $_SESSION['user']['id'])) {
+                    $_SESSION['success'] = ___('user_credentials_success');
+                    foreach ($this->model->attributes as $k => $v) {
+                        if (!empty($v) && $k != 'password') {
+                            $_SESSION['user'][$k] = $v;
+                        }
+                    }
+                } else {
+                    $_SESSION['errors'] = ___('user_credentials_error');
+                }
+            }
+            redirect();
+        }
+
+        $this->setMeta(___('user_credentials_title'));
+    }
+
     public function signupAction(): void
     {
         if (User::checkAuth()) {
@@ -16,9 +54,9 @@ class UserController extends AppController
         }
 
         if (!empty($_POST)) {
-            $data = $_POST;
-            $this->model->loadAttributes($data);
-            if (!$this->model->validate($data) || !$this->model->checkUnique()) {
+
+            $this->model->loadAttributes();
+            if (!$this->model->validate($this->model->attributes) || !$this->model->checkUnique()) {
                 $this->model->getErrors();
                 $_SESSION['form_data'] = $data;
             } else {
