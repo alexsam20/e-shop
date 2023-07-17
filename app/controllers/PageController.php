@@ -11,8 +11,7 @@ class PageController extends AppController
 
     public function viewAction()
     {
-        $lang = App::$app::getProperty('language');
-        $page = $this->model->getPage($this->route['slug'], $lang);
+        $page = $this->model->getPage($this->route['slug'], $this->lang);
 
         if (!$page) {
             $this->error_404();

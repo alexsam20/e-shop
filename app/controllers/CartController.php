@@ -10,10 +10,8 @@ use shop\App;
 /** @property Cart $model */
 class CartController extends AppController
 {
-
     public function addAction()
     {
-        $lang = App::$app::getProperty('language');
         $id = serverMethodGET('id');
         $qty = serverMethodGET('qty');
 
@@ -21,7 +19,7 @@ class CartController extends AppController
             return false;
         }
 
-        $product = $this->model->getProduct($id, $lang);
+        $product = $this->model->getProduct($id, $this->lang);
         if (!$product) {
             return false;
         }

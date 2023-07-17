@@ -116,7 +116,6 @@ class UserController extends AppController
 
         $page = serverMethodGET('page');
         $perpage = App::$app::getProperty('pagination');
-//        $perpage = 5;
         $total = $this->model->getCountOrders($_SESSION['user']['id']);
         $pagination = new Pagination($page, $perpage, $total);
         $start = $pagination->getStart();
@@ -149,15 +148,13 @@ class UserController extends AppController
             redirect(baseUrl() . 'user/login');
         }
 
-        $lang = App::$app::getProperty('language');
         $page = serverMethodGET('page');
         $perpage = App::$app::getProperty('pagination');
-//        $perpage = 1;
         $total = $this->model->getCountFiles();
         $pagination = new Pagination($page, $perpage, $total);
         $start = $pagination->getStart();
 
-        $files = $this->model->getUserFiles($start, $perpage, $lang);
+        $files = $this->model->getUserFiles($start, $perpage, $this->lang);
         $this->setMeta(___('user_files_title'));
         $this->setData(compact('files', 'pagination', 'total'));
     }
@@ -169,8 +166,7 @@ class UserController extends AppController
         }
 
         $id = serverMethodGET('id');
-        $lang = App::$app::getProperty('language');
-        $file = $this->model->getUserFile($id, $lang);
+        $file = $this->model->getUserFile($id, $this->lang);
         if ($file) {
             $path = WWW . "/downloads/{$file['filename']}";
             if (file_exists($path)) {

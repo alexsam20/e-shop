@@ -11,8 +11,7 @@ class ProductController extends AppController
 {
     public function viewAction()
     {
-        $lang = App::$app::getProperty('language');
-        $product = $this->model->getProduct($this->route['slug'], $lang);
+        $product = $this->model->getProduct($this->route['slug'], $this->lang);
 
         if (!$product) {
 //            throw new \RuntimeException($this->route['slug'] . ' Not Found', 404);
