@@ -8,7 +8,7 @@ use app\models\admin\User;
 class UserController extends AppController
 {
 
-    public function loginAdminAction()
+    public function loginAdminAction(): void
     {
         if ($this->model::isAdmin()) {
             redirect(ADMIN);
@@ -29,7 +29,7 @@ class UserController extends AppController
         }
     }
 
-    public function logoutAction()
+    public function logoutAction(): void
     {
         if ($this->model::isAdmin()) {
             unset($_SESSION['user']);
