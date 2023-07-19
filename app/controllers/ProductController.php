@@ -4,7 +4,6 @@ namespace app\controllers;
 
 use app\models\Breadcrumbs;
 use app\models\Product;
-use shop\App;
 
 /** @property Product $model */
 class ProductController extends AppController
@@ -14,7 +13,6 @@ class ProductController extends AppController
         $product = $this->model->getProduct($this->route['slug'], $this->lang);
 
         if (!$product) {
-//            throw new \RuntimeException($this->route['slug'] . ' Not Found', 404);
             $this->error_404();
             return;
         }

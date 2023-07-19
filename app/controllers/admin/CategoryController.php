@@ -2,8 +2,6 @@
 
 namespace app\controllers\admin;
 
-use app\models\Category;
-
 class CategoryController extends AppController
 {
 
@@ -12,6 +10,13 @@ class CategoryController extends AppController
         $title = 'Categories';
         $this->setMeta("Administrator :: {$title}");
         $this->setData(compact('title'));
+    }
+
+    public function deleteAction()
+    {
+        if (!empty(serverMethodGET('id')) && is_numeric(serverMethodGET('id'))) {
+            $this->model->delete();
+        }
     }
 
 }
