@@ -5,7 +5,6 @@ namespace app\controllers;
 use app\models\AppModel;
 use app\models\Wishlist;
 use app\widgets\language\Language;
-use RedBeanPHP\R;
 use shop\App;
 use shop\Controller;
 

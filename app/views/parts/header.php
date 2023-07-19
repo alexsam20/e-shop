@@ -60,11 +60,7 @@ use shop\View;
                             <?php endif; ?>
                         </ul>
                     </div>
-
                     <?php new \app\widgets\language\Language();?>
-
-
-
                 </div>
             </div>
         </div>

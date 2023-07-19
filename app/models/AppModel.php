@@ -15,7 +15,7 @@ class AppModel extends Model
         unset($_SESSION[$name]);
     }
 
-    public function getCategories($lang): array
+    public function getCategories($lang)
     {
         return R::getAssoc("SELECT c.*, cd.* FROM category c 
            JOIN category_description cd

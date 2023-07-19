@@ -11,6 +11,7 @@ use shop\Controller;
 class AppController extends Controller
 {
     public false|string $layout = 'admin';
+    public array $lang;
 
     public function __construct(array $route = [])
     {
@@ -19,9 +20,15 @@ class AppController extends Controller
         if (!User::isAdmin() && $route['action'] !== 'login-admin') {
             redirect(ADMIN . '/user/login-admin');
         }
-        new AppModel();
+        $model = new AppModel();
+
         App::$app::setProperty('languages', Language::getLanguages());
         App::$app::setProperty('language', Language::getLanguage(App::$app::getProperty('languages')));
+
+        $this->lang = App::$app::getProperty('language');
+
+        $categories = $model->getCategories($this->lang);
+        App::$app::setProperty("categories_{$this->lang['code']}", $categories);
     }
 
 }
