@@ -30,7 +30,7 @@ class CategoryController extends AppController
         $start = $pagination->getStart();
 
         $products = $this->model->getProducts($ids, $this->lang, $start, $perpage);
-        $this->setMeta($category['title'], $category['description'], $category['keywords']);
+        $this->setMeta($category['title'], $category['description'] ?? 'e-shop', $category['keywords'] ?? 'e-shop, i-shop, e-commercial');
         $this->setData(compact('products', 'category', 'breadcrumbs', 'total', 'pagination'));
     }
 }

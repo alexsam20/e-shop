@@ -2,9 +2,10 @@
 
 namespace app\models\admin;
 
+use app\models\AppModel;
 use RedBeanPHP\R;
 
-class Category
+class Category extends AppModel
 {
     public function delete(): void
     {
@@ -26,5 +27,22 @@ class Category
             $_SESSION['success'] = 'Category deleted';
         }
         redirect();
+    }
+
+    public function categoryValidate(): bool
+    {
+        $errors = '';
+        foreach ($_POST['category_description'] as $lang_id => $item) {
+            $item['title'] = trim(htmlspecialchars($item['title']));
+            if (empty($item['title'])) {
+                $errors .= "The title in the tab is not filled &nbsp;{$lang_id}<br>";
+            }
+        }
+        if ($errors) {
+            $_SESSION['errors'] = $errors;
+            $_SESSION['form_data'] = $_POST;
+            return false;
+        }
+        return true;
     }
 }

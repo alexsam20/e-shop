@@ -88,3 +88,8 @@ function getFieldValue($name): string
 {
     return isset($_SESSION['form_data'][$name]) ? htmlspecialchars($_SESSION['form_data'][$name]) : '';
 }
+
+function getFieldArrayValue($name, $key, $index): string
+{
+    return isset($_SESSION['form_data'][$name][$key][$index]) ? htmlspecialchars($_SESSION['form_data'][$name][$key][$index]) : '';
+}
