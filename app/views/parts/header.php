@@ -8,6 +8,7 @@ use shop\View;
     <base href="<?php echo baseUrl(); ?>">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php echo $this->getMeta(); ?>
     <link rel="stylesheet" href="<?php echo PATH ?>/assets/bootstrap/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -16,7 +17,6 @@ use shop\View;
     <link rel="stylesheet" href="<?php echo PATH ?>/assets/css/main.css">
     <link rel="icon" type="image/png" sizes="48x48" href="<?php echo PATH ?>/assets/img/favicon.png">
 <!--    <link rel="icon" type="image/png" sizes="48x48" href="--><?php //echo PATH ?><!--/favicon.png">-->
-    <?php echo $this->getMeta(); ?>
 </head>
 <body>
 

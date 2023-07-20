@@ -26,9 +26,11 @@ class CategoryController extends AppController
     {
         if (!empty($_POST)) {
             if ($this->model->categoryValidate()) {
-                $_SESSION['success'] = 'Category saved';
-            } else {
-
+                if ($this->model->saveCategory()) {
+                    $_SESSION['success'] = 'Category saved';
+                } else {
+                    $_SESSION['errors'] = 'Error!';
+                }
             }
             redirect();
         }

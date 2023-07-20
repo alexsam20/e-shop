@@ -9,7 +9,7 @@
 
         <div class="table-responsive">
             <?php new \app\widgets\menu\Menu([
-                'cache' => 0,
+                'cache' =>  0,
                 'cacheKey' => 'admin_menu',
                 'class' => 'table table-bordered',
                 'tpl' => APP . '/widgets/menu/admin_table_tpl.php',
