@@ -5,7 +5,8 @@
     <base href="<?php echo ADMIN; ?>">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">    <?php echo $this->getMeta(); ?>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php echo $this->getMeta(); ?>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -13,8 +14,10 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo PATH ?>/admin/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="<?php echo PATH ?>/admin/main.css">
+
     <script src="<?php echo PATH ?>/admin/ckeditor/ckeditor.js"></script>
     <script src="<?php echo PATH ?>/admin/ckfinder/ckfinder.js"></script>
+
     <link rel="icon" type="image/png" sizes="48x48" href="<?php echo PATH ?>/assets/img/favicon.png">
     <title><?php echo $title ?? ''; ?></title>
 </head>

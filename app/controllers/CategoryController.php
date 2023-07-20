@@ -12,7 +12,8 @@ class CategoryController extends AppController
 {
     public function viewAction(): void
     {
-        $category = $this->model->getCategory($this->route['slug'], $this->lang);
+        $lang = App::$app::getProperty('language');
+        $category = $this->model->getCategory($this->route['slug'], $lang);
 
         if (!$category) {
             $this->error_404();
@@ -28,9 +29,10 @@ class CategoryController extends AppController
         $total = $this->model->getCountProducts($ids);
         $pagination = new Pagination($page, $perpage, $total);
         $start = $pagination->getStart();
+        //echo  $pagination;
 
-        $products = $this->model->getProducts($ids, $this->lang, $start, $perpage);
-        $this->setMeta($category['title'], $category['description'] ?? 'e-shop', $category['keywords'] ?? 'e-shop, i-shop, e-commercial');
+        $products = $this->model->getProducts($ids, $lang, $start, $perpage);
+        $this->setMeta($category['title'], $category['description'] ?? 'e-shop', $category['keywords'] ?? 'e-shop, i-shop');
         $this->setData(compact('products', 'category', 'breadcrumbs', 'total', 'pagination'));
     }
 }

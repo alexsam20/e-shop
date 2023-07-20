@@ -2,6 +2,7 @@
 
 namespace app\controllers\admin;
 
+
 use app\models\admin\User;
 use app\models\AppModel;
 use app\widgets\language\Language;
@@ -11,6 +12,7 @@ use shop\Controller;
 class AppController extends Controller
 {
     public false|string $layout = 'admin';
+
     public array $lang;
 
     public function __construct(array $route = [])
@@ -29,6 +31,10 @@ class AppController extends Controller
 
         $categories = $model->getCategories($this->lang);
         App::$app::setProperty("categories_{$this->lang['code']}", $categories);
+
+        new AppModel();
+        App::$app::setProperty('languages', Language::getLanguages());
+        App::$app::setProperty('language', Language::getLanguage(App::$app::getProperty('languages')));
     }
 
 }
