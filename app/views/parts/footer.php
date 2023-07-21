@@ -73,7 +73,7 @@ use shop\View;
         crossorigin="anonymous"></script>
 <script src="<?php echo PATH ?>/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="<?php echo PATH ?>/assets/js/jquery.magnific-popup.min.js"></script>
-<script src="<?= PATH ?>/assets/js/sweetalert2.js"></script>
+<script src="<?php echo PATH ?>/assets/js/sweetalert2.js"></script>
 <script src="<?php echo PATH ?>/assets/js/main.js"></script>
 
 </body>

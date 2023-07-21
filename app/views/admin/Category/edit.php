@@ -81,7 +81,7 @@
         ClassicEditor
             .create( node, {
                 ckfinder: {
-                    uploadUrl: '<?= PATH ?>/admin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+                    uploadUrl: '<?php echo PATH ?>/admin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
                 },
                 toolbar: [ 'ckfinder', '|', 'heading', '|', 'bold', 'italic', '|', 'undo', 'redo', '|', 'link', 'bulletedList', 'numberedList', 'insertTable', 'blockQuote' ],
                 image: {

@@ -12,8 +12,8 @@ $edit = '<a class="btn btn-info btn-sm" href="' . ADMIN . '/category/edit?id=' .
     <td>
         <a href="<?php echo ADMIN ?>/category/edit/?id=<?php echo $id ?>" style="padding-left: <?php echo strlen($tab)*3 ?>px"><?php echo $tab . $category['title'] ?></a>
     </td>
-    <td width="50"><?= $edit ?></td>
-    <td width="50"><?= $delete ?></td>
+    <td width="50"><?php echo $edit ?></td>
+    <td width="50"><?php echo $delete ?></td>
 </tr>
 <?php if (isset($category['children'])): ?>
     <?php echo $this->getMenuHtml($category['children'], $tab . '&#8211;&nbsp;');?>

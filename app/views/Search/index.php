@@ -8,7 +8,7 @@
 <div class="container">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-light p-2">
-            <li class="breadcrumb-item"><a href="<?= baseUrl() ?>"><i class="fas fa-home"></i></a></li>
+            <li class="breadcrumb-item"><a href="<?php echo baseUrl() ?>"><i class="fas fa-home"></i></a></li>
             <li class="breadcrumb-item"><?php __('search_index_search_title'); ?></li>
         </ol>
     </nav>
@@ -25,12 +25,12 @@
                     <div class="row">
                         <div class="col-md-12">
                             <p>
-                                <?= count($products) ?>
+                                <?php echo count($products) ?>
                                 <?php __('tpl_pagination_total'); ?>
-                                <?= $total ?>
+                                <?php echo $total ?>
                             </p>
                             <?php if ($pagination->countPages > 1): ?>
-                                <?= $pagination ?>
+                                <?php echo $pagination ?>
                             <?php endif; ?>
                         </div>
                     </div>

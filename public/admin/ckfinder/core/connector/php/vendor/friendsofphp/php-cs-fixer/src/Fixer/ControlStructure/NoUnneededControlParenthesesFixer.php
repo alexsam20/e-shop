@@ -435,7 +435,7 @@ while ($y) { continue (2); }
         return $this->isWrappedSequenceElement($tokens, $beforeOpenIndex, $afterCloseIndex);
     }
 
-    // any of `<?php|<?|<?=|;|throw|return|... (X) ;|T_CLOSE`
+    // any of `<?php|<?|<?php echo|;|throw|return|... (X) ;|T_CLOSE`
     private function isSingleStatement(Tokens $tokens, int $beforeOpenIndex, int $afterCloseIndex): bool
     {
         if ($tokens[$beforeOpenIndex]->isGivenKind(T_CASE)) {

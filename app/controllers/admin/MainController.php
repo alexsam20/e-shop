@@ -14,7 +14,7 @@ class MainController extends AppController
         $products = R::count('product');
 
         $title = 'Dashboard';
-        $this->setMeta('Admin :: Dashboard');
+        $this->setMeta('Administrator :: Dashboard');
         $this->setData(compact('title', 'orders', 'new_orders', 'users', 'products'));
     }
 }

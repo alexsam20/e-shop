@@ -5,7 +5,7 @@
 <div class="container">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-light p-2">
-            <li class="breadcrumb-item"><a href="<?= baseUrl() ?>"><i class="fas fa-home"></i></a></li>
+            <li class="breadcrumb-item"><a href="<?php echo baseUrl() ?>"><i class="fas fa-home"></i></a></li>
             <li class="breadcrumb-item"><?php __('wishlist_index_title'); ?></li>
         </ol>
     </nav>

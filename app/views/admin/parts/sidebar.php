@@ -46,6 +46,12 @@
                         <p>Categories</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="<?php echo ADMIN ?>/product" class="nav-link">
+                        <i class="nav-icon fas fa-barcode"></i>
+                        <p>Products</p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
