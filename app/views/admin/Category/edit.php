@@ -42,22 +42,22 @@
 
                                 <div class="form-group">
                                     <label class="required" for="title">Title</label>
-                                    <input type="text" name="category_description[<?php echo $lang['id'] ?>][title]" class="form-control" id="title" placeholder="Category name" value="<?php echo getFieldArrayValue('category_description', $lang['id'], 'title') ?>" required>
+                                    <input type="text" name="category_description[<?php echo $lang['id'] ?>][title]" class="form-control" id="title" placeholder="Category name" value="<?php echo $category[$lang['id']]['title'];  ?>" required2>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="description">Meta description</label>
-                                    <input type="text" name="category_description[<?php echo $lang['id'] ?>][description]" class="form-control" id="description" placeholder="Meta description" value="<?php echo getFieldArrayValue('category_description', $lang['id'], 'description') ?>">
+                                    <input type="text" name="category_description[<?php echo $lang['id'] ?>][description]" class="form-control" id="description" placeholder="Meta description" value="<?php echo $category[$lang['id']]['description']; ?>">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="keywords">Keywords</label>
-                                    <input type="text" name="category_description[<?php echo $lang['id'] ?>][keywords]" class="form-control" id="keywords" placeholder="Keywords" value="<?php echo getFieldArrayValue('category_description', $lang['id'], 'keywords') ?>">
+                                    <input type="text" name="category_description[<?php echo $lang['id'] ?>][keywords]" class="form-control" id="keywords" placeholder="Keywords" value="<?php echo $category[$lang['id']]['keywords']; ?>">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="content">Category description</label>
-                                    <textarea name="category_description[<?php echo $lang['id'] ?>][content]" class="form-control editor" id="content" rows="3" placeholder="Category description"><?php echo getFieldArrayValue('category_description', $lang['id'], 'content') ?></textarea>
+                                    <textarea name="category_description[<?php echo $lang['id'] ?>][content]" class="form-control editor" id="content" rows="3" placeholder="Category description"><?php echo trim($category[$lang['id']]['content']);  ?></textarea>
                                 </div>
 
                             </div>
@@ -70,21 +70,12 @@
             <button type="submit" class="btn btn-primary">Save</button>
 
         </form>
-
-        <?php
-        if (isset($_SESSION['form_data'])) {
-            unset($_SESSION['form_data']);
-        }
-        ?>
-
     </div>
 
 </div>
 <!-- /.card -->
 
 <script>
-    // https://question-it.com/questions/3558262/kak-ja-mogu-sozdat-neskolko-redaktorov-s-imenem-klassa
-    // https://ckeditor.com/docs/ckfinder/demo/ckfinder3/samples/ckeditor.html
     window.editors = {};
     document.querySelectorAll( '.editor' ).forEach( ( node, index ) => {
         ClassicEditor

@@ -3,6 +3,7 @@
 namespace app\controllers\admin;
 
 use app\models\admin\Category;
+use shop\App;
 
 /** @property Category $model */
 class CategoryController extends AppController
@@ -37,6 +38,30 @@ class CategoryController extends AppController
         $title = 'New category.';
         $this->setMeta("Administrator :: {$title}");
         $this->setData(compact('title'));
+    }
+
+    public function editAction()
+    {
+        $id = serverMethodGET('id');
+        if (!empty($_POST)) {
+            if ($this->model->categoryValidate()) {
+                if ($this->model->updateCategory($id)) {
+                    $_SESSION['success'] = 'Category updated.';
+                } else {
+                    $_SESSION['errors'] = 'Error!';
+                }
+            }
+            redirect();
+        }
+        $category = $this->model->getCategory($id);
+        if (!$category) {
+            throw new \RuntimeException('Not found category', 404);
+        }
+
+        App::$app::setProperty('parent_id', $category[$this->lang['id']]['parent_id']);
+        $title = 'Edit Category';
+        $this->setMeta("Administrator :: {$title}");
+        $this->setData(compact('title', 'category'));
     }
 
 }
