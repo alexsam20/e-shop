@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="<?php echo PATH ?>/admin/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo PATH ?>/admin/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="<?php echo PATH ?>/admin/plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="<?php echo PATH ?>/admin/main.css">
 
     <script src="<?php echo PATH ?>/admin/ckeditor/ckeditor.js"></script>

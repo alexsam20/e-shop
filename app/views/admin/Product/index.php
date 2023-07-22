@@ -27,7 +27,7 @@
                         <tr>
                             <td><?php echo $product['id'] ?></td>
                             <td>
-                                <img src="<?php echo IMAGE ?><?php echo $product['img'] ?>" alt="" height="40">
+                                <img src="<?php echo $product['img'] ?>" alt="" height="40">
                             </td>
                             <td>
                                 <?php echo $product['title'] ?>

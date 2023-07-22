@@ -30,7 +30,7 @@
                         <?php foreach ($_SESSION['cart'] as $id => $item): ?>
                             <tr class="align-middle">
                                 <td>
-                                    <a href="product/<?php echo $item['slug'] ?>"><img src="<?php echo IMAGE . '/' . $item['img'] ?>"
+                                    <a href="product/<?php echo $item['slug'] ?>"><img src="<?php echo $item['img'] ?>"
                                                                                 alt=""></a>
                                 </td>
                                 <td><a href="product/<?php echo $item['slug'] ?>"><?php echo $item['title'] ?></a></td>

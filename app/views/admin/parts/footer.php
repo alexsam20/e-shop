@@ -28,6 +28,7 @@
 <script src="<?php echo PATH ?>/admin/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo PATH ?>/admin/dist/js/demo.js"></script>
+<script src="<?php echo PATH ?>/admin/plugins/select2/js/select2.full.js"></script>
 <script src="<?php echo PATH ?>/admin/main.js"></script>
 </body>
 </html>

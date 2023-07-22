@@ -42,12 +42,12 @@
         <div class="col-md-8 order-md-1">
 
             <ul class="thumbnails list-unstyled clearfix">
-                <li class="thumb-main text-center"><a class="thumbnail" href="<?php echo IMAGE . '/' . $product['img']; ?>" data-effect="mfp-zoom-in"><img src="<?php echo IMAGE . '/' . $product['img']; ?>" alt="<?php echo IMAGE . '/' . $product['title']; ?>"></a></li>
+                <li class="thumb-main text-center"><a class="thumbnail" href="<?php echo $product['img']; ?>" data-effect="mfp-zoom-in"><img src="<?php echo $product['img']; ?>" alt="<?php echo $product['title']; ?>"></a></li>
                 <?php if (!empty($imgGallery)): ?>
                     <?php foreach ($imgGallery as $item): ?>
                         <li class="thumb-additional">
-                            <a class="thumbnail" href="<?php echo PRODUCT_GALLERY . $item['img']; ?>" data-effect="mfp-zoom-in">
-                                <img src="<?php echo PRODUCT_GALLERY . $item['img']; ?>" alt="">
+                            <a class="thumbnail" href="<?php echo $item['img']; ?>" data-effect="mfp-zoom-in">
+                                <img src="<?php echo $item['img']; ?>" alt="">
                             </a>
                         </li>
                     <?php endforeach; ?>

@@ -15,7 +15,7 @@
         <?php foreach ($_SESSION['cart'] as $id => $item): ?>
         <tr>
             <td>
-                <a href="product/<?php echo $item['slug']; ?>"><img src="<?php echo IMAGE . $item['img'] ?>" alt=""></a>
+                <a href="product/<?php echo $item['slug']; ?>"><img src="<?php echo $item['img'] ?>" alt=""></a>
             </td>
             <td><a href="product/<?php echo $item['slug']; ?>"><?php echo $item['title']; ?></a></td>
             <td><?php echo $item['qty']; ?></td>
