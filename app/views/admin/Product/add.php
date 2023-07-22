@@ -125,7 +125,7 @@
 
                                 <div class="form-group">
                                     <label for="exerpt" class="required">Short description</label>
-                                    <input type="text" name="product_description[<?php echo $lang['id'] ?>][exerpt]" class="form-control" id="exerpt" placeholder="Short description product" value="<?php echo getFieldArrayValue('product_description', $lang['id'], 'exerpt') ?>">
+                                    <input type="text" name="product_description[<?php echo $lang['id'] ?>][excerpt]" class="form-control" id="exerpt" placeholder="Short description product" value="<?php echo getFieldArrayValue('product_description', $lang['id'], 'exerpt') ?>">
                                 </div>
 
                                 <div class="form-group">
