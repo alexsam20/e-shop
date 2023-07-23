@@ -7,9 +7,18 @@ use RedBeanPHP\R;
 
 class Download extends AppModel
 {
-    public function getCountDownload(): int
+//    public function getCountDownload(): int
+//    {
+//        return R::count('download');
+//    }
+
+    public function countDownload(string $table, array $download_id = []): int
     {
-        return R::count('download');
+        if (!empty($download_id)) {
+            return R::count($table, 'download_id = ?', $download_id);
+        }
+        return R::count($table);
+
     }
 
     public function getDownloads($lang, $start, $perpage): array
@@ -82,5 +91,25 @@ class Download extends AppModel
             R::rollback();
             return false;
         }
+    }
+
+    public function downloadDelete($id): bool
+    {
+        $file_name = R::getCell('SELECT filename FROM download WHERE id = ?', [$id]);
+        $file_path = WWW . "/downloads/{$file_name}";
+        if (file_exists($file_path)) {
+            R::begin();
+            try {
+                R::exec("DELETE FROM download_description WHERE download_id = ?", [$id]);
+                R::exec("DELETE FROM download WHERE id = ?", [$id]);
+                R::commit();
+                @unlink($file_path);
+                return true;
+            } catch (\Exception $e) {
+                R::rollback();
+                return false;
+            }
+        }
+        return false;
     }
 }

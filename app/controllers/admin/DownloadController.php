@@ -15,12 +15,12 @@ class DownloadController extends AppController
     {
         $page = serverMethodGET('page');
         $perpage = 20;
-        $total = $this->model->getCountDownload();
+        $total = $this->model->countDownload('download');
         $pagination = new Pagination($page, $perpage, $total);
         $start = $pagination->getStart();
 
         $downloads = $this->model->getDownloads($this->lang, $start, $perpage);
-        $title = '<strong><i>Files (digital products)</i></strong>';
+        $title = 'Files (digital products)';
         $this->setMeta("Administrator :: {$title}");
         $this->setData(compact('title', 'downloads', 'pagination', 'total'));
     }
@@ -41,9 +41,28 @@ class DownloadController extends AppController
             }
             redirect();
         }
-        $title = '<strong><i>File added (digital product)</i></strong>';
+        $title = 'File added (digital product)';
         $this->setMeta("Administrator :: {$title}");
         $this->setData(compact('title'));
+    }
+
+    public function deleteAction(): void
+    {
+        $id = serverMethodGET('id');
+        if ($this->model->countDownload('order_download', [$id])) {
+            $_SESSION['errors'] = 'Unable to delete this file already purchased';
+            redirect();
+        }
+        if ($this->model->countDownload('product_download', [$id])) {
+            $_SESSION['errors'] = 'It is impossible to delete this file attached to the product';
+            redirect();
+        }
+        if ($this->model->downloadDelete($id)) {
+            $_SESSION['success'] = 'File deleted';
+        } else {
+            $_SESSION['errors'] = 'Error deleted file';
+        }
+        redirect();
     }
 
 }
