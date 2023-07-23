@@ -81,7 +81,7 @@ use shop\View;
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <?php new \app\widgets\menu\Menu([
                             'class' => 'navbar-nav ms-auto mb-2 mb-lg-0',
-                            'cache' => CACHE_TIME,
+//                            'cache' => CACHE_TIME,
                         ]) ?>
                     </div>
 
