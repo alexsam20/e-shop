@@ -8,7 +8,7 @@ use shop\Pagination;
 /** @property User $model */
 class UserController extends AppController
 {
-    public function indexAction()
+    public function indexAction(): void
     {
         $page = serverMethodGET('page');
         $perpage = 20;
@@ -22,7 +22,7 @@ class UserController extends AppController
         $this->setData(compact('title', 'users', 'pagination', 'total'));
     }
 
-    public function viewAction()
+    public function viewAction(): void
     {
         $id = serverMethodGET('id');
         $user = $this->model->getUser($id);
@@ -42,7 +42,29 @@ class UserController extends AppController
         $this->setData(compact('title', 'user', 'pagination', 'total', 'orders'));
     }
 
-    public function editAction()
+    public function addAction(): void
+    {
+        if (!empty($_POST)) {
+            $this->model->loadAttributes();
+            if (!$this->model->validate($this->model->attributes) || !$this->model->checkUnique('This is E-mail is already taken')) {
+                $this->model->getErrors();
+                $_SESSION['form_data'] = $_POST;
+            } else {
+                $this->model->attributes['password'] = $this->model->passwordHash($this->model->attributes['password']);
+                if ($this->model->save('user')) {
+                    $_SESSION['success'] = 'User created';
+                } else {
+                    $_SESSION['errors'] = 'User adding Error';
+                }
+            }
+            redirect();
+        }
+        $title = 'New user';
+        $this->setMeta("Administrator :: {$title}");
+        $this->setData(compact('title'));
+    }
+
+    public function editAction(): void
     {
         $id = serverMethodGET('id');
         $user = $this->model->getUser($id);
