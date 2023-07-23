@@ -48,7 +48,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?php echo ADMIN ?>/product" class="nav-link">
-                        <i class="nav-icon fas fa-barcode"></i>
+                        <i class="nav-icon fas fa-inbox"></i>
                         <p>Products</p>
                     </a>
                 </li>

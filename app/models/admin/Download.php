@@ -7,11 +7,6 @@ use RedBeanPHP\R;
 
 class Download extends AppModel
 {
-//    public function getCountDownload(): int
-//    {
-//        return R::count('download');
-//    }
-
     public function countDownload(string $table, array $download_id = []): int
     {
         if (!empty($download_id)) {

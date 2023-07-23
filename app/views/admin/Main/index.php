@@ -27,7 +27,7 @@
                         <div class="icon">
                             <i class="fas fa-luggage-cart"></i>
                         </div>
-                        <a href="<?php echo ADMIN ?>/orders?status=0" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?php echo ADMIN ?>/order?status=new" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -50,10 +50,10 @@
                     <div class="small-box bg-success">
                         <div class="inner">
                             <h3><?php echo $products ?></h3>
-                            <p>Goods</p>
+                            <p>Products</p>
                         </div>
                         <div class="icon">
-                            <i class="fas fa-barcode"></i>
+                            <i class="fas fa-inbox"></i>
                         </div>
                         <a href="<?php echo ADMIN ?>/product" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>

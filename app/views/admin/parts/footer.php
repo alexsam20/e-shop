@@ -1,9 +1,9 @@
 <?php /** @var $this \shop\View */ ?>
 <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-        <b>Version</b> 3.2.0
+        <b>Version</b> 1.0.0
     </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; <?php if (date('Y') !== '2023') {echo '2023 - ' . date('Y');} else { echo '2023';} ?> <a href="<?php echo WWW; ?>">E-Shop</a>.</strong> All rights reserved.
 </footer>
 <div class="logs">
 <?php $this->getDBLogs(); ?>
