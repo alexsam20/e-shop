@@ -44,7 +44,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <p><?php echocount($files)?> <?php __('user_files_total_pagination'); ?> <?php echo $total;?></p>
+                        <p><?php echo count($files)?> <?php __('user_files_total_pagination'); ?> <?php echo $total;?></p>
                         <?php if($pagination->countPages > 1): ?>
                             <?php echo $pagination;?>
                         <?php endif; ?>
