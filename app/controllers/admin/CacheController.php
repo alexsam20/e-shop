@@ -18,7 +18,7 @@ class CacheController extends AppController
     public function deleteAction(): void
     {
         $langs = App::$app::getProperty('languages');
-        $cache_key = serverMethodGET('cache', 's');
+        $cache_key = getMethodGET('cache', 's');
         $cache = Cache::getInstance();
         if ($cache_key === 'category') {
             foreach ($langs as $lang => $item) {

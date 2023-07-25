@@ -10,7 +10,7 @@ class UserController extends AppController
 {
     public function indexAction(): void
     {
-        $page = serverMethodGET('page');
+        $page = getMethodGET('page');
         $perpage = 20;
         $total = $this->model->countUses();
         $pagination = new Pagination($page, $perpage, $total);
@@ -24,13 +24,13 @@ class UserController extends AppController
 
     public function viewAction(): void
     {
-        $id = serverMethodGET('id');
+        $id = getMethodGET('id');
         $user = $this->model->getUser($id);
         if (!$user) {
             throw new \RuntimeException('Not found user', 404);
         }
 
-        $page = serverMethodGET('page');
+        $page = getMethodGET('page');
         $perpage = 10;
         $total = $this->model->getCountOrders($id);
         $pagination = new Pagination($page, $perpage, $total);
@@ -66,7 +66,7 @@ class UserController extends AppController
 
     public function editAction(): void
     {
-        $id = serverMethodGET('id');
+        $id = getMethodGET('id');
         $user = $this->model->getUser($id);
         $userId = $_SESSION['user']['id'] ?? 'user';
         if (!$user) {

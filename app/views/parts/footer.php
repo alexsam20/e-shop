@@ -10,7 +10,6 @@ use shop\View;
                 <div class="col-md-3 col-6">
                     <h4><?php __('tpl_information'); ?></h4>
                     <?php new \app\widgets\page\Page([
-//                        'cache' => CACHE_TIME,
                         'class' => 'list-unstyled',
                         'prepend' => '<li><a href="' . baseUrl() . '">' . ___('tpl_home_link') . '</a></li>',
                     ]) ?>

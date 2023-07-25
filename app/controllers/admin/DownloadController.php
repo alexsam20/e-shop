@@ -13,7 +13,7 @@ class DownloadController extends AppController
 
     public function indexAction(): void
     {
-        $page = serverMethodGET('page');
+        $page = getMethodGET('page');
         $perpage = 20;
         $total = $this->model->countDownload('download');
         $pagination = new Pagination($page, $perpage, $total);
@@ -48,7 +48,7 @@ class DownloadController extends AppController
 
     public function deleteAction(): void
     {
-        $id = serverMethodGET('id');
+        $id = getMethodGET('id');
         if ($this->model->countDownload('order_download', [$id])) {
             $_SESSION['errors'] = 'Unable to delete this file already purchased';
             redirect();

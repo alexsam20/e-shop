@@ -12,8 +12,8 @@ class CartController extends AppController
 {
     public function addAction()
     {
-        $id = serverMethodGET('id');
-        $qty = serverMethodGET('qty');
+        $id = getMethodGET('id');
+        $qty = getMethodGET('qty');
 
         if (!$id) {
             return false;
@@ -39,7 +39,7 @@ class CartController extends AppController
 
     public function deleteAction()
     {
-        $id = serverMethodGET('id');
+        $id = getMethodGET('id');
         if (isset($_SESSION['cart'][$id])) {
             $this->model->deleteItem($id);
         }
@@ -86,8 +86,8 @@ class CartController extends AppController
             }
             // Save order
             $data['user_id'] = $user_id ?? $_SESSION['user']['id'];
-            $data['note'] = serverMethodPOST('note');
-            $user_email = $_SESSION['user']['email'] ?? serverMethodPOST('email');
+            $data['note'] = getMethodPOSt('note');
+            $user_email = $_SESSION['user']['email'] ?? getMethodPOSt('email');
 
             if (!$order_id = Order::saveOrder($data)) {
                 $_SESSION['errors'] = ___('cart_checkout_error_save_order');

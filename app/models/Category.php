@@ -30,8 +30,8 @@ class Category extends AppModel
     {
         $sort_values = $this->sortOfMethodProduct();
         $orderBy = '';
-        if (!empty(serverMethodGET('sort', 's')) && array_key_exists(serverMethodGET('sort', 's'), $sort_values)) {
-            $orderBy = $sort_values[serverMethodGET('sort', 's')];
+        if (!empty(getMethodGET('sort', 's')) && array_key_exists(getMethodGET('sort', 's'), $sort_values)) {
+            $orderBy = $sort_values[getMethodGET('sort', 's')];
         }
         return R::getAll("SELECT p.*, pd.* FROM product p JOIN product_description pd 
            ON p.id = pd.product_id WHERE p.status = 1 

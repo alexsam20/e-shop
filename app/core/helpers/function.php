@@ -31,7 +31,7 @@ function baseUrl(): string
  * @param string $type Values i, f, s
  * @return float|int|string
  */
-function serverMethodGET(string $key, $type = 'i'): float|int|string
+function getMethodGET(string $key, $type = 'i'): float|int|string
 {
     $param = $key;
     $$param = $_GET[$param] ?? '';
@@ -50,7 +50,7 @@ function serverMethodGET(string $key, $type = 'i'): float|int|string
  * @param string $type Values i, f, s
  * @return float|int|string
  */
-function serverMethodPOST(string $key, $type = 's'): float|int|string
+function getMethodPOSt(string $key, $type = 's'): float|int|string
 {
     $param = $key;
     $$param = $_POST[$param] ?? '';

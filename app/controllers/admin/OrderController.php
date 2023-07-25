@@ -10,10 +10,10 @@ class OrderController extends AppController
 {
     public function indexAction(): void
     {
-        $status = serverMethodGET('status', 's');
+        $status = getMethodGET('status', 's');
         $status = ($status === 'new') ? ' status = 0 ' : '';
 
-        $page = serverMethodGET('page');
+        $page = getMethodGET('page');
         $perpage = 20;
         $total = $this->model->countOrders($status);
         $pagination = new Pagination($page, $perpage, $total);
@@ -27,10 +27,10 @@ class OrderController extends AppController
 
     public function editAction(): void
     {
-        $id = serverMethodGET('id');
+        $id = getMethodGET('id');
 
         if (isset($_GET['status'])) {
-            $status = serverMethodGET('status');
+            $status = getMethodGET('status');
             if ($this->model->changeStatus($id, $status)) {
                 $_SESSION['success'] = 'Order status changed';
             } else {

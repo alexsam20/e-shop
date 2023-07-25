@@ -51,8 +51,8 @@ class User extends AppModel
 
     public function login($is_admin = false): bool
     {
-        $email = serverMethodPOST('email');
-        $password = serverMethodPOST('password');
+        $email = getMethodPOSt('email');
+        $password = getMethodPOSt('password');
         if ($email && $password) {
             if ($is_admin) {
                 $user = R::findOne('user', "email = ? AND role = 'admin'", [$email]);

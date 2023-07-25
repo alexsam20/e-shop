@@ -11,8 +11,8 @@ class SearchController extends AppController
 {
     public function indexAction()
     {
-        $s = serverMethodGET('s', 's');
-        $page = serverMethodGET('page');
+        $s = getMethodGET('s', 's');
+        $page = getMethodGET('page');
         $perpage = App::$app::getProperty('pagination');
         $total = $this->model->getCountFindProducts($s, $this->lang);
         $pagination = new Pagination($page, $perpage, $total);

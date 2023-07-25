@@ -18,7 +18,7 @@ class WishlistController extends AppController
 
     public function addAction(): void
     {
-        $id = serverMethodGET('id');
+        $id = getMethodGET('id');
         if (!$id) {
             $answer = ['result' => 'error', 'text' => ___('tpl_wishlist_add_error')];
             exit(json_encode($answer));
@@ -36,7 +36,7 @@ class WishlistController extends AppController
 
     public function deleteAction()
     {
-        $id = serverMethodGET('id');
+        $id = getMethodGET('id');
 
         if ($this->model->deleteFromWishlist($id)) {
             $answer = ['result' => 'success', 'text' => ___('tpl_wishlist_delete_success')];

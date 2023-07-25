@@ -10,7 +10,7 @@ class Category extends AppModel
 {
     public function delete(): void
     {
-        $id = serverMethodGET('id');
+        $id = getMethodGET('id');
         $errors = '';
         $children = R::count('category', 'parent_id = ?', [$id]);
         $products = R::count('product', 'category_id = ?', [$id]);
@@ -53,7 +53,7 @@ class Category extends AppModel
         R::begin();
         try {
             $category = R::dispense('category');
-            $category->parent_id = serverMethodPOST('parent_id', 'i');
+            $category->parent_id = getMethodPOSt('parent_id', 'i');
             $category_id = R::store($category);
             $category->slug = AppModel::createSlug('category', 'slug', $_POST['category_description'][$lang]['title'], $category_id);
             R::store($category);
@@ -84,7 +84,7 @@ class Category extends AppModel
             if (!$category) {
                 return false;
             }
-            $category->parent_id = serverMethodPOST('parent_id', 'i');
+            $category->parent_id = getMethodPOSt('parent_id', 'i');
             R::store($category);
 
             foreach ($_POST['category_description'] as $lang_id => $item) {

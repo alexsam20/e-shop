@@ -12,7 +12,7 @@ class ProductController extends AppController
     public function indexAction(): void
     {
         //$lang = App::$app::getProperty('language');
-        $page = serverMethodGET('page');
+        $page = getMethodGET('page');
         $perpage = 5;
         $total = $this->model->getCountAllProducts();
         $pagination = new Pagination($page, $perpage, $total);
@@ -44,7 +44,7 @@ class ProductController extends AppController
 
     public function editAction(): void
     {
-        $id = serverMethodGET('id');
+        $id = getMethodGET('id');
         $lang = $this->lang['id'];
 
         if (!empty($_POST)) {
@@ -73,7 +73,7 @@ class ProductController extends AppController
 
     public function getDownloadAction(): void
     {
-        $q = serverMethodGET('q', 's');
+        $q = getMethodGET('q', 's');
         $downloads = $this->model->getDownloads($q);
         echo json_encode($downloads);
         die;

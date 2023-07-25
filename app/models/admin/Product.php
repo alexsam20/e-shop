@@ -38,10 +38,10 @@ class Product extends AppModel
     public function productValidate(): bool
     {
         $errors = '';
-        if (!is_numeric(serverMethodPOST('price'))) {
+        if (!is_numeric(getMethodPOSt('price'))) {
             $errors .= "Price must be numeric.<br>";
         }
-        if (!is_numeric(serverMethodPOST('old_price'))) {
+        if (!is_numeric(getMethodPOSt('old_price'))) {
             $errors .= "Old price must be numeric.<br>";
         }
 
@@ -74,13 +74,13 @@ class Product extends AppModel
         try {
             // product
             $product = R::dispense('product');
-            $product->category_id = serverMethodPOST('parent_id', 'i');
-            $product->price = serverMethodPOST('price', 'f');
-            $product->old_price = serverMethodPOST('old_price', 'f');
-            $product->status = serverMethodPOST('status') ? 1 : 0;
-            $product->hit = serverMethodPOST('hit') ? 1 : 0;
-            $product->img = serverMethodPOST('img') ?: NO_IMAGE;
-            $product->is_download = serverMethodPOST('is_download') ? 1 : 0;
+            $product->category_id = getMethodPOSt('parent_id', 'i');
+            $product->price = getMethodPOSt('price', 'f');
+            $product->old_price = getMethodPOSt('old_price', 'f');
+            $product->status = getMethodPOSt('status') ? 1 : 0;
+            $product->hit = getMethodPOSt('hit') ? 1 : 0;
+            $product->img = getMethodPOSt('img') ?: NO_IMAGE;
+            $product->is_download = getMethodPOSt('is_download') ? 1 : 0;
             $product_id = R::store($product);
 
             $product->slug = AppModel::createSlug('product', 'slug', $_POST['product_description'][$lang]['title'], $product_id);
@@ -111,7 +111,7 @@ class Product extends AppModel
 
             // product_download if is_download
             if ($product->is_download) {
-                $download_id = serverMethodPOST('is_download', 'i');
+                $download_id = getMethodPOSt('is_download', 'i');
                 R::exec("INSERT INTO product_download (product_id, download_id) VALUES (?,?)", [$product_id, $download_id]);
             }
 
@@ -134,13 +134,13 @@ class Product extends AppModel
             if (!$product) {
                 return false;
             }
-            $product->category_id = serverMethodPOST('parent_id', 'i');
-            $product->price = serverMethodPOST('price', 'f');
-            $product->old_price = serverMethodPOST('old_price', 'f');
-            $product->status = serverMethodPOST('status') ? 1 : 0;
-            $product->hit = serverMethodPOST('hit') ? 1 : 0;
-            $product->img = serverMethodPOST('img') ?: NO_IMAGE;
-            $product->is_download = serverMethodPOST('is_download') ? 1 : 0;
+            $product->category_id = getMethodPOSt('parent_id', 'i');
+            $product->price = getMethodPOSt('price', 'f');
+            $product->old_price = getMethodPOSt('old_price', 'f');
+            $product->status = getMethodPOSt('status') ? 1 : 0;
+            $product->hit = getMethodPOSt('hit') ? 1 : 0;
+            $product->img = getMethodPOSt('img') ?: NO_IMAGE;
+            $product->is_download = getMethodPOSt('is_download') ? 1 : 0;
             $product_id = R::store($product);
 
             // product_description
@@ -179,7 +179,7 @@ class Product extends AppModel
             // product_download if is_download
             R::exec("DELETE FROM product_download WHERE product_id = ?", [$id]);
             if ($product->is_download) {
-                $download_id = serverMethodPOST('is_download', 'i');
+                $download_id = getMethodPOSt('is_download', 'i');
                 R::exec("INSERT INTO product_download (product_id, download_id) VALUES (?,?)", [$product_id, $download_id]);
             }
 

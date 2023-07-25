@@ -18,7 +18,7 @@ class CategoryController extends AppController
 
     public function deleteAction(): void
     {
-        if (!empty(serverMethodGET('id')) && is_numeric(serverMethodGET('id'))) {
+        if (!empty(getMethodGET('id')) && is_numeric(getMethodGET('id'))) {
             $this->model->delete();
         }
     }
@@ -42,7 +42,7 @@ class CategoryController extends AppController
 
     public function editAction()
     {
-        $id = serverMethodGET('id');
+        $id = getMethodGET('id');
         if (!empty($_POST)) {
             if ($this->model->categoryValidate()) {
                 if ($this->model->updateCategory($id)) {

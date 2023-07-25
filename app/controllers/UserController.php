@@ -114,7 +114,7 @@ class UserController extends AppController
             redirect(baseUrl() . 'user/login');
         }
 
-        $page = serverMethodGET('page');
+        $page = getMethodGET('page');
         $perpage = App::$app::getProperty('pagination');
         $total = $this->model->getCountOrders($_SESSION['user']['id']);
         $pagination = new Pagination($page, $perpage, $total);
@@ -132,7 +132,7 @@ class UserController extends AppController
             redirect(baseUrl() . 'user/login');
         }
 
-        $id = serverMethodGET('id');
+        $id = getMethodGET('id');
         $order = $this->model->getUserOrder($id);
         if (!$order) {
             throw new \Exception('Not found order', 404);
@@ -148,7 +148,7 @@ class UserController extends AppController
             redirect(baseUrl() . 'user/login');
         }
 
-        $page = serverMethodGET('page');
+        $page = getMethodGET('page');
         $perpage = App::$app::getProperty('pagination');
         $total = $this->model->getCountFiles();
         $pagination = new Pagination($page, $perpage, $total);
@@ -165,7 +165,7 @@ class UserController extends AppController
             redirect(baseUrl() . 'user/login');
         }
 
-        $id = serverMethodGET('id');
+        $id = getMethodGET('id');
         $file = $this->model->getUserFile($id, $this->lang);
         if ($file) {
             $path = WWW . "/downloads/{$file['filename']}";

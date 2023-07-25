@@ -1,6 +1,6 @@
 <?php
 $parent_id = \shop\App::$app::getProperty('parent_id');
-$get_id = serverMethodGET('id');
+$get_id = getMethodGET('id');
 ?>
 
 <option value="<?php echo $id ?>" <?php if ($id == $parent_id) echo ' selected'; ?> <?php if ($get_id == $id) echo ' disabled'; ?>>
