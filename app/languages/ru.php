@@ -51,4 +51,10 @@ return [
     'tpl_wishlist_delete_error' => 'Ошибка удаления товара из избранного',
 
     'tpl_error_404' => '404 - Страница не найдена',
+
+    'tpl_footer_our_advantages' => 'НАШИ ПРЕИМУЩЕСТВА',
+    'tpl_footer_direct_deliveries' => 'Прямые поставки от производителей',
+    'tpl_footer_wide_range_of_goods' => 'Широкий ассортимент товара',
+    'tpl_footer_pleasant_and_competitive_prices' => 'Приятные и конкуретные цены',
+    'tpl_footer_professional_consultation_and_service' => 'Профессиональная консультация и сервис',
 ];

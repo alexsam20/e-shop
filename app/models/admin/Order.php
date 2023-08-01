@@ -11,6 +11,11 @@ class Order extends AppModel
     {
         return R::count('orders', $status);
     }
+
+    public function countOrderProduct($id): int|null
+    {
+        return R::count('order_product', ' product_id = ' . $id);
+    }
     
     public function getOrders($start, $perpage, $status): array
     {

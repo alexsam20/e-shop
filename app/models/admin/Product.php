@@ -198,7 +198,6 @@ class Product extends AppModel
         if (!$product) {
             return false;
         }
-        //$key = key($product);
         $key = App::$app::getProperty('language')['id'];
         if ($product[$key]['is_download']) {
             $download_info = $this->getProductDownload($id);
@@ -219,5 +218,34 @@ class Product extends AppModel
     public function getGallery($id): array
     {
         return R::getCol("SELECT img FROM product_gallery WHERE product_id = ?", [$id]);
+    }
+
+    public function deleteProduct($id): bool
+    {
+        R::begin();
+        try {
+            $product = R::load('product', $id);
+            if (!$product) {
+                return false;
+            }
+            if($product->is_download) {
+                R::exec("DELETE FROM product_download WHERE product_id = ?", [(int)$id]);
+            }
+            $images = R::getAssocRow("SELECT id, img FROM product_gallery WHERE product_id = ?", [(int)$id]);
+            if ($images) {
+                foreach ($images as $img) {
+                    unlink(trim($img['img'], '/'));
+                }
+            }
+            R::exec("DELETE FROM product_gallery WHERE product_id = ?", [(int)$id]);
+            R::exec("DELETE FROM product_description WHERE product_id = ?", [(int)$id]);
+            unlink(trim($product->img, '/'));
+            R::trash($product);
+            R::commit();
+            return true;
+        } catch (\Exception $e) {
+            R::rollback();
+            return false;
+        }
     }
 }

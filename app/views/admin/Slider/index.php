@@ -46,6 +46,7 @@
     function popupGalleryImage() {
         CKFinder.popup({
             chooseFiles: true,
+            language: 'en',
             onInit: function (finder) {
                 finder.on('files:choose', function (evt) {
                     var file = evt.data.files.first();

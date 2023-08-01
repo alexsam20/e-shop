@@ -2,6 +2,7 @@
 
 namespace app\controllers\admin;
 
+use app\models\admin\Order;
 use app\models\admin\Product;
 use shop\App;
 use shop\Pagination;
@@ -11,7 +12,6 @@ class ProductController extends AppController
 {
     public function indexAction(): void
     {
-        //$lang = App::$app::getProperty('language');
         $page = getMethodGET('page');
         $perpage = 5;
         $total = $this->model->getCountAllProducts();
@@ -77,5 +77,21 @@ class ProductController extends AppController
         $downloads = $this->model->getDownloads($q);
         echo json_encode($downloads);
         die;
+    }
+
+    public function deleteAction(): void
+    {
+        $id = getMethodGET('id');
+        if((new Order)->countOrderProduct($id) > 0) {
+            $_SESSION['errors'] = 'Product in orders';
+            redirect();
+            exit;
+        }
+        if ($this->model->deleteProduct($id)) {
+            $_SESSION['success'] = 'Product deleted. If the product was digital, delete the product file.';
+        } else {
+            $_SESSION['errors'] = 'Product delete Error';
+        }
+        redirect();
     }
 }

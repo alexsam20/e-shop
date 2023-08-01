@@ -17,7 +17,7 @@
             <h1><?php echo $product['title']; ?></h1>
 
             <ul class="list-unstyled">
-                <?php if ($product['amount'] !== null): ?>
+                <?php if ($product['price'] > 0): ?>
                     <li><i class="fas fa-check text-success"></i>&nbsp;&nbsp;<?php __('product_view_in_stock'); ?></li>
                 <?php else: ?>
                     <li><i class="fas fa-shipping-fast text-muted"></i>&nbsp;&nbsp;<?php __('product_view_is_waiting'); ?></li>

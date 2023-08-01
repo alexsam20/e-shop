@@ -52,4 +52,10 @@ return [
     'tpl_wishlist_delete_error' => 'Error removing a product from favorites',
 
     'tpl_error_404' => '404 - Page not found',
+
+    'tpl_footer_our_advantages' => 'OUR ADVANTAGES',
+    'tpl_footer_direct_deliveries' => 'Direct deliveries from manufacturers',
+    'tpl_footer_wide_range_of_goods' => 'Wide range of goods',
+    'tpl_footer_pleasant_and_competitive_prices' => 'Pleasant and competitive prices',
+    'tpl_footer_professional_consultation_and_service' => 'Professional consultation and service',
 ];

@@ -18,9 +18,9 @@ use shop\View;
                 <div class="col-md-3 col-6">
                     <h4><?php __('tpl_work_hours'); ?></h4>
                     <ul class="list-unstyled">
-                        <li>г. Киев, ул. Пушкина, 10</li>
-                        <li>пн-вс: 9:00 - 18:00</li>
-                        <li>без перерыва</li>
+                        <li>231 West Beach New York NY 10001</li>
+                        <li>mon - fri: 9:00 PM - 6:00 PM</li>
+                        <li>sat - sun: 10:00 PM - 4:00 PM</li>
                     </ul>
                 </div>
 
