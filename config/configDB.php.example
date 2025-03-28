@@ -1,0 +1,6 @@
+<?php
+ return [
+     'dsn' => 'mysql:host=localhost;dbname=eshop;charset=utf8', // Name DB = eshop
+     'user' => 'USER_DB',
+     'password' => 'PASSWORD_DB',
+ ];

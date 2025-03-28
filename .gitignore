@@ -1,4 +1,5 @@
 /.idea
 /vendor
 /tmp
+/config/configDB.php
 .editorconfig
